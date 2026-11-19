@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Award, BadgeCheck, Building2, CheckCircle2, Download, Factory, FileText, MapPin, Phone,
-  Play, Send, Sparkles, Target, Truck, X, Eye, MessageCircle, Navigation, CalendarClock, Users, Map as MapIcon, Globe,
+  Play, Send, Sparkles, Target, Truck, X, Eye, MessageCircle, Navigation, CalendarClock, Users, Map as MapIcon, Globe, Package,
 } from 'lucide-react';
 import {
-  company, waLink, brands, finishes, qualities, process, experience, documents, gallery,
+  company, waLink, brands, finishes, qualities, process, experience, documents, gallery, packings, exportInfo,
 } from '../data/site';
 import { Reveal, SectionHead, Counter, WhatsAppIcon } from './ui';
 import { usePdf } from './PdfViewer';
@@ -13,7 +13,7 @@ import { onDownloadClick } from '../lib/files';
 
 /* ───────────────────────── Marquee ───────────────────────── */
 export function Marquee() {
-  const items = ['GP', 'Egybel', 'Jaguar', 'On Point', ...qualities, 'Zinc Plating', 'Gold Plating', 'ZED Bronze Certified'];
+  const items = ['GP', 'Egybel', 'Jaguar', 'On Point', ...qualities, 'Zinc Plating', 'Gold Plating', '250 g · 500 g · 2.5 kg Packing', 'Export Facility Available', 'ZED Bronze Certified'];
   const row = [...items, ...items];
   return (
     <div className="marquee" aria-hidden="true">
@@ -189,7 +189,7 @@ export function Brands({ onView }) {
               <motion.img
                 className="brand-packs"
                 src={b.packs}
-                alt={`${b.full} 500 g pouch and box`}
+                alt={`${b.full} pouch and box packing`}
                 initial={{ x: -30, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: 0.15, type: 'spring', stiffness: 90, damping: 16 }}
@@ -241,7 +241,7 @@ export function Products() {
         <SectionHead
           kicker="Products & Finishes"
           title={<>Wire nails in <span className="accent-text">three premium finishes.</span></>}
-          sub="Tap a finish to see it. All finishes are available across our brands in 500 g pouch and box packing."
+          sub="Tap a finish to see it. Every finish is available across our brands in 250 g, 500 g and 2.5 kg packing."
         />
 
         <div className="finish-grid">
@@ -294,9 +294,48 @@ export function Products() {
           </div>
         </div>
 
+        <div className="packing">
+          <Reveal>
+            <h3 className="packing-title">
+              <Package size={22} /> Packing options
+            </h3>
+            <p className="packing-sub">All brands and finishes are available in these packs.</p>
+          </Reveal>
+          <div className="packing-grid">
+            {packings.map((pk, i) => (
+              <Reveal key={pk.name} delay={i * 0.1}>
+                <motion.div className={`pack-card ${pk.popular ? 'popular' : ''}`} whileHover={{ y: -6 }}>
+                  {pk.popular && <span className="pack-flag">Most popular</span>}
+                  <div className="pack-weight">
+                    <b>{pk.size}</b>
+                    <span>{pk.unit}</span>
+                  </div>
+                  <strong>{pk.name}</strong>
+                  <p>{pk.text}</p>
+                  <a className="pack-ask" href={waLink(`Hello, I need a rate for ${pk.name.toLowerCase()} wire nails.`)} target="_blank" rel="noreferrer">
+                    <WhatsAppIcon size={15} /> Ask rate
+                  </a>
+                </motion.div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal delay={0.2}>
+            <div className="export-banner">
+              <span className="export-ico"><Globe size={28} /></span>
+              <div className="export-copy">
+                <strong>{exportInfo.title}</strong>
+                <p>{exportInfo.text}</p>
+              </div>
+              <a className="btn btn-wa" href={waLink('Hello, I am interested in exporting your wire nails. Please share details.')} target="_blank" rel="noreferrer">
+                <WhatsAppIcon size={18} /> Export enquiry
+              </a>
+            </div>
+          </Reveal>
+        </div>
+
         <div className="pack-row">
           {[
-            ...brands.map((x) => ({ img: x.packs, t: `${x.name} – 500 g Pouch & Box` })),
+            ...brands.map((x) => ({ img: x.packs, t: `${x.name} – Pouch & Box` })),
           ].map((p, i) => (
             <Reveal key={p.t} delay={i * 0.1} className="pack">
               <img src={p.img} alt={p.t} loading="lazy" />
@@ -535,11 +574,11 @@ export function Downloads({ onView }) {
 
 /* ───────────────────────── Contact ───────────────────────── */
 export function Contact() {
-  const [form, setForm] = useState({ name: '', city: '', gstin: '', brand: 'GP', finish: finishes[0].name, qty: '', note: '' });
+  const [form, setForm] = useState({ name: '', city: '', gstin: '', brand: 'GP', finish: finishes[0].name, packing: packings[1].name, qty: '', note: '' });
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
   const msg =
       `Hello ${company.name},\n\nI would like a quotation.\n` +
-      `• Name: ${form.name}\n• City: ${form.city}\n• GSTIN: ${form.gstin}\n• Brand: ${form.brand}\n• Finish: ${form.finish}\n` +
+      `• Name: ${form.name}\n• City: ${form.city}\n• GSTIN: ${form.gstin}\n• Brand: ${form.brand}\n• Finish: ${form.finish}\n• Packing: ${form.packing}\n` +
       `• Quantity: ${form.qty || '-'}\n${form.note ? `• Note: ${form.note}\n` : ''}`;
   const submit = (e) => e.preventDefault();
   // Block sending until required fields are filled; show the browser's own hints.
@@ -673,6 +712,14 @@ export function Contact() {
                   </select>
                 </label>
               </div>
+              <label>
+                Packing
+                <select id="quote-packing" value={form.packing} onChange={set('packing')}>
+                  {packings.map((pk) => (
+                    <option key={pk.name}>{pk.name}</option>
+                  ))}
+                </select>
+              </label>
               <label>
                 Quantity
                 <input value={form.qty} onChange={set('qty')} placeholder="e.g. 50 boxes / 200 kg" />

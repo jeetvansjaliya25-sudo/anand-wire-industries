@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { Download, ShieldCheck } from 'lucide-react';
+import { Download, ShieldCheck, Globe } from 'lucide-react';
 import { company, waLink, brands } from '../data/site';
 import { WhatsAppIcon, Counter } from './ui';
 
@@ -19,6 +19,9 @@ export default function Hero() {
         <div className="hero-copy">
           <motion.div className="badge" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, ease }}>
             <ShieldCheck size={15} /> ZED Bronze Certified · Ministry of MSME
+          </motion.div>
+          <motion.div className="badge badge-export" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, ease }}>
+            <Globe size={15} /> Export facility available
           </motion.div>
 
           <h1>

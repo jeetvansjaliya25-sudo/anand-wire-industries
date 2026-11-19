@@ -66,7 +66,7 @@ export const brands = [
     packs: 'images/gp-packs.jpg',
     catalogue: 'docs/GP-Wire-Nails-Catalogue.pdf',
     blurb: 'Our flagship brand. Export quality wire nails made from 100% prime wire coil with a high-gloss double-polished finish.',
-    tags: ['Export Quality', 'ISO 9001:2015 packing', '500 g pouch & box'],
+    tags: ['Export Quality', 'ISO 9001:2015 packing', '250 g · 500 g · 2.5 kg'],
   },
   {
     id: 'egybel',
@@ -79,7 +79,7 @@ export const brands = [
     packs: 'images/egybel-packs.jpg',
     catalogue: 'docs/Egybel-Wire-Nails-Catalogue.pdf',
     blurb: 'Premium nails with perfect long point and perfect gauge – trusted by carpenters for clean, split-free fixing.',
-    tags: ['Perfect Long Point', 'Perfect Gauge', '500 g pouch & box'],
+    tags: ['Perfect Long Point', 'Perfect Gauge', '250 g · 500 g · 2.5 kg'],
   },
   {
     id: 'jaguar',
@@ -92,7 +92,7 @@ export const brands = [
     packs: 'images/jaguar-packs.jpg',
     catalogue: null,
     blurb: 'Strong, sharp and dependable – built for construction sites and everyday carpentry work.',
-    tags: ['100% Prime Quality', 'Sharp Point', '500 g pouch & box'],
+    tags: ['100% Prime Quality', 'Sharp Point', '250 g · 500 g · 2.5 kg'],
   },
   {
     id: 'onpoint',
@@ -105,9 +105,21 @@ export const brands = [
     packs: 'images/onpoint-packs.jpg',
     catalogue: 'docs/OnPoint-Wire-Nails-Catalogue.pdf',
     blurb: 'Precision-pointed nails for accurate driving and a neat finish on furniture and interior work.',
-    tags: ['Export Quality', 'Perfect Gauge', '500 g pouch & box'],
+    tags: ['Export Quality', 'Perfect Gauge', '250 g · 500 g · 2.5 kg'],
   },
 ];
+
+// Packing sizes offered for every brand and finish.
+export const packings = [
+  { size: '250', unit: 'g', name: '250 g Packing', text: 'Handy small pack for retail counters and everyday home use.' },
+  { size: '500', unit: 'g', name: '500 g Packing', text: 'Our most popular pack – pouch and box, ready for hardware shelves.', popular: true },
+  { size: '2.5', unit: 'kg', name: '2.5 kg Packing', text: 'Bulk pack for carpenters, contractors and dealers.' },
+];
+
+export const exportInfo = {
+  title: 'Export facility available',
+  text: 'We supply international buyers with export-quality wire nails – packing, finish and documentation as per your order.',
+};
 
 export const finishes = [
   { id: 'polish', name: 'Regular Double Polish', desc: 'High-gloss, double-polished bright finish for general carpentry and furniture.', tone: 'steel', img: 'images/finish-steel.png', video: 'videos/finish-steel.mp4' },
@@ -131,7 +143,7 @@ export const process = [
   { title: 'Heading & Pointing', text: 'Automatic machines form a firm head and a sharp, long point.' },
   { title: 'Double Polishing', text: 'Nails are tumbled and polished twice for a high-gloss finish.' },
   { title: 'Plating', text: 'Optional zinc or gold plating as per order.' },
-  { title: 'Quality Check & Packing', text: 'Checked for gauge and length, then packed in 500 g pouches & boxes.' },
+  { title: 'Quality Check & Packing', text: 'Checked for gauge and length, then packed in 250 g, 500 g and 2.5 kg packs.' },
 ];
 
 export const documents = [
