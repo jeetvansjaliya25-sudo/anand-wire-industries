@@ -782,6 +782,12 @@ export function Footer() {
       <div className="container foot-bottom">
         <span>© {new Date().getFullYear()} {company.name}. All rights reserved.</span>
         <span>Proprietor: {company.owner}</span>
+        <span className="dev-credit">
+          Designed &amp; developed by{' '}
+          <a href="https://novengroup.in" target="_blank" rel="noopener">
+            novengroup.in
+          </a>
+        </span>
       </div>
     </footer>
   );
