@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Award, BadgeCheck, Building2, CheckCircle2, Download, Factory, FileText, MapPin, Phone,
-  Play, Send, Sparkles, Target, Truck, X, Eye, MessageCircle, Navigation, CalendarClock, Users, Map as MapIcon, Globe, Package,
+  Play, Send, Sparkles, Target, Truck, X, Eye, MessageCircle, Navigation, Mail, CalendarClock, Users, Map as MapIcon, Globe, Package,
 } from 'lucide-react';
 import {
   company, waLink, brands, finishes, qualities, process, experience, documents, gallery, packings, exportInfo,
@@ -615,6 +615,10 @@ export function Contact() {
               <span className="ci-ico"><MapPin size={20} /></span>
               <span><small>Factory Address</small><strong className="addr">{company.address}</strong></span>
             </a>
+            <a className="ci" href={`mailto:${company.email}?subject=${encodeURIComponent('Enquiry – Wire Nails')}`}>
+              <span className="ci-ico"><Mail size={20} /></span>
+              <span><small>Email</small><strong className="email">{company.email}</strong></span>
+            </a>
             <div className="ci">
               <span className="ci-ico"><Building2 size={20} /></span>
               <span><small>Proprietor</small><strong>{company.owner}</strong></span>
@@ -629,7 +633,7 @@ export function Contact() {
                 <rect x="380" y="150" width="110" height="45" rx="8" className="m-park" />
                 <path d="M0 115 H600 M0 40 C200 60 400 20 600 50 M300 0 V300 M190 0 L250 300 M470 0 L420 300" className="m-road" />
                 <path d="M0 115 H600 M300 0 V300" className="m-road-main" />
-                <text x="312" y="108" className="m-label">St. No. 22</text>
+                <text x="312" y="108" className="m-label">St. No. 24</text>
                 <text x="60" y="68" className="m-label">Samrat Ind. Area</text>
               </svg>
               <div className="map-pin" aria-hidden="true">
@@ -771,7 +775,8 @@ export function Footer() {
           <h5>Contact</h5>
           <a href={waLink()} target="_blank" rel="noreferrer">WhatsApp {company.whatsappDisplay}</a>
           <a href={`tel:${company.phoneAlt.replace(/\s/g, '')}`}>{company.phoneAlt}</a>
-          <span className="muted">Rajkot, Gujarat 360004</span>
+          <a href={`mailto:${company.email}`}>{company.email}</a>
+          <span className="muted">Street No. 24, Samrat Industrial Area, Rajkot, Gujarat 360004</span>
         </div>
       </div>
       <div className="container foot-bottom">

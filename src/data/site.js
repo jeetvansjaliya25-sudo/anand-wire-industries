@@ -10,9 +10,10 @@ export const company = {
   whatsapp: '919925117519', // used for wa.me links (no + or spaces)
   whatsappDisplay: '+91 99251 17519',
   phoneAlt: '+91 94093 99544',
+  email: 'anandwireindustries@yahoo.in',
   gst: '24ABEFA4208M1ZL',
   udyam: 'UDYAM-GJ-20-0083370',
-  address: 'Samrat Industrial Area, Street No. 22, Bh. ST Workshop, Rajkot, Gujarat – 360004, India',
+  address: 'Samrat Industrial Area, Street No. 24, Bh. ST Workshop, Rajkot, Gujarat – 360004, India',
   lat: 22.2548704,
   lng: 70.7957957,
   zedDate: 'February 3, 2024',
