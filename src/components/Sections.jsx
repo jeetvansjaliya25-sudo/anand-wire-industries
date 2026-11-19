@@ -452,7 +452,7 @@ export function Media({ onView }) {
 
         <div className="gallery">
           {gallery.map((g, i) => (
-            <Reveal key={g.src} delay={(i % 4) * 0.07} className={`g-item g${i}`}>
+            <Reveal key={g.src} delay={(i % 4) * 0.07} className={`g-item ${g.span || ''} ${g.fit === 'contain' ? 'fit-contain' : ''}`}>
               <button onClick={() => onView(g)}>
                 <img src={g.src} alt={g.caption} loading="lazy" />
                 <span>{g.caption}</span>

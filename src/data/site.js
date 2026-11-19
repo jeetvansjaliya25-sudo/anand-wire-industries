@@ -142,13 +142,17 @@ export const documents = [
   { title: 'ZED Assessment Report', file: 'docs/ZED-Assessment-Report.pdf', size: '1.3 MB', thumb: 'images/zed-report-cover.jpg', type: 'Report' },
 ];
 
+// Gallery: real product & factory photos (catalogue posters live in Downloads).
+// span: 'tall' = 2 rows, 'wide' = 2 columns; fit: 'contain' shows the whole image.
 export const gallery = [
-  { src: 'images/gp-poster.jpg', caption: 'GP Wire Nails' },
-  { src: 'images/nails-3d-hero.png', caption: 'Our four finishes – 3D render' },
-  { src: 'images/factory-front.jpg', caption: 'Our unit, Rajkot' },
-  { src: 'images/jaguar-poster.jpg', caption: 'Jaguar Wire Nails' },
+  { src: 'images/gallery/size-chart.jpg', caption: 'Wire nails – gauge & size chart', span: 'tall', fit: 'contain' },
+  { src: 'images/gallery/black-carriage-bolts.jpg', caption: 'Black carriage bolts with nut & washer', span: 'wide' },
+  { src: 'images/gallery/zinc-wire-nails.jpg', caption: 'Zinc plated wire nails', span: 'tall' },
   { src: 'images/nails-hand-1.jpg', caption: 'Finished nails – quality check' },
-  { src: 'images/egybel-poster.jpg', caption: 'Egybel Wire Nails' },
-  { src: 'images/onpoint-poster.jpg', caption: 'On Point Wire Nails' },
-  { src: 'images/factory-gate.jpg', caption: 'Factory entrance' },
+  { src: 'images/factory-front.jpg', caption: 'Our unit, Rajkot' },
+  { src: 'images/gallery/nickel-carriage-bolts.jpg', caption: 'Nickel finish carriage bolts', span: 'wide' },
+  { src: 'images/gallery/egybel-carriage-bolt-pack.jpg', caption: 'Egybel carriage bolt – 1/4 × 1.50", 1 kg pack' },
+  { src: 'images/gallery/nickel-bolts-box.jpg', caption: 'Nickel carriage bolts – box packing', span: 'tall' },
+  { src: 'images/factory-gate.jpg', caption: 'Factory entrance', span: 'wide' },
+  { src: 'images/nails-3d-hero.png', caption: 'Our four nail finishes – 3D render', fit: 'contain' },
 ];

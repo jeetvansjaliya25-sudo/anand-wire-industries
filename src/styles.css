@@ -278,10 +278,11 @@ p { margin: 0 0 1rem; }
 .g-item:hover img { transform: scale(1.06); }
 .g-item span { position: absolute; left: 10px; bottom: 10px; padding: 0.3rem 0.7rem; border-radius: 999px; text-align: left; font-size: 0.78rem; font-weight: 600; background: rgba(255, 255, 255, 0.94); color: var(--ink); opacity: 0; transform: translateY(8px); transition: all 0.3s; }
 .g-item:hover span { opacity: 1; transform: none; }
-.g0, .g3 { grid-row: span 2; }
-.g0 img, .g3 img { object-position: top; }
-.g1 img { object-fit: contain; background: var(--page); }
-.g6, .g7 { grid-column: span 2; }
+.gallery { grid-auto-flow: row dense; }
+.g-item.tall { grid-row: span 2; }
+.g-item.wide { grid-column: span 2; }
+.g-item.fit-contain img { object-fit: contain; background: #fff; }
+.g-item.tall img { object-position: center top; }
 
 /* ── Downloads ─────────────────────────── */
 .downloads { background: var(--page); }
